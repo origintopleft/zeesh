@@ -1,0 +1,4 @@
+# vim: ft=zsh :
+
+PROMPT="%{$fg[cyan]%}%n%{$fg[white]%}@%{$fg[magenta]%}%m %{$fg[white]%}%~ \# "
+RPROMPT="%{$fg_bold[black]%}%T%{$reset_color%}"
