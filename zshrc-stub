@@ -12,7 +12,9 @@ if type md5sum &> /dev/null; then
         new_stub_sum="$(md5sum ~/.local/share/zeesh/zshrc-stub | awk '{ print $1 }')"
 
         if [[ ! current_stub_sum == new_stub_sum ]]; then
-                cp ~/.local/share/zshrc-stub ~/.zshrc
+                cp ~/.local/share/zeesh/zshrc-stub ~/.zshrc
                 _zshrc_updates_pending=1
         fi
 fi
+
+[[ _zshrc_updates_pending -eq 1 ]] && printf "zeesh: updates pending\n"
