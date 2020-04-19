@@ -1,4 +1,18 @@
 # vim: ft=zsh :
 
-PROMPT="%{$fg[cyan]%}%n%{$fg[white]%}@%{$fg[magenta]%}%m %{$fg[white]%}%~ \# "
+autoload -U colors && colors 
+
+PROMPT="%{$fg[cyan]%}%n%{$fg[white]%}@%{$fg[magenta]%}%m %{$fg[white]%}%~ %# "
 RPROMPT="%{$fg_bold[black]%}%T%{$reset_color%}"
+
+_zshrc_updates_pending=0
+
+if type md5sum &> /dev/null; then
+        current_stub_sum="$(md5sum ~/.zshrc | awk '{ print $1 }')"
+        new_stub_sum="$(md5sum ~/.local/share/zeesh/zshrc-stub | awk '{ print $1 }')"
+
+        if [[ ! current_stub_sum == new_stub_sum ]]; then
+                cp ~/.local/share/zshrc-stub ~/.zshrc
+                _zshrc_updates_pending=1
+        fi
+fi
