@@ -8,13 +8,11 @@ RPROMPT="%{$fg_bold[black]%}%T%{$reset_color%}"
 _zshrc_updates_pending=0
 
 if type md5sum &> /dev/null; then
-        current_stub_sum="$(md5sum ~/.zshrc | awk '{ print $1 }')"
-        new_stub_sum="$(md5sum ~/.local/share/zeesh/zshrc-stub | awk '{ print $1 }')"
-
-        if [[ ! current_stub_sum == new_stub_sum ]]; then
+        cmp -s ~/.zshrc ~/.local/share/zeesh
+        if [[ $? -eq 1 ]]; then
                 cp ~/.local/share/zeesh/zshrc-stub ~/.zshrc
                 _zshrc_updates_pending=1
         fi
 fi
 
-[[ _zshrc_updates_pending -eq 1 ]] && printf "zeesh: updates pending\n"
+[[ _zshrc_updates_pending -eq 1 ]] && printf "zeesh: stub updates pending\n"
