@@ -16,3 +16,10 @@ if type md5sum &> /dev/null; then
 fi
 
 [[ _zshrc_updates_pending -eq 1 ]] && printf "zeesh: stub updates pending\n"
+
+# kick things off
+fpath=(
+    ~/.local/share/zeesh/plugins
+    "${fpath[@]}"
+)
+source ~/.local/share/zeesh/base/zeesh.zsh
