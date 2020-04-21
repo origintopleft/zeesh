@@ -1,4 +1,4 @@
-if type git &> /dev/null; then
+if type git &> /dev/null && (( _zeesh_fresh_install != 1 )); then
     ticker_message "zeesh: pulling from git" # TODO: less frequently, and background
     start_dir="$(pwd)"
 
