@@ -22,4 +22,4 @@ fpath=(
     ~/.local/share/zeesh/plugins
     "${fpath[@]}"
 )
-source ~/.local/share/zeesh/base/zeesh.zsh
+source ~/.local/share/zeesh/zeesh.zsh
