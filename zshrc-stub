@@ -5,17 +5,15 @@ autoload -U colors && colors
 PROMPT="%{$fg[cyan]%}%n%{$fg[white]%}@%{$fg[magenta]%}%m %{$fg[white]%}%~ %# "
 RPROMPT="%{$fg_bold[black]%}%T%{$reset_color%}"
 
-_zshrc_updates_pending=0
-
-if type md5sum &> /dev/null; then
-        cmp -s ~/.zshrc ~/.local/share/zeesh/zshrc-stub
-        if [[ $? -eq 1 ]]; then
-                cp ~/.local/share/zeesh/zshrc-stub ~/.zshrc
-                _zshrc_updates_pending=1
-        fi
+if [[ ! -d ~/.local/share/zeesh ]]; then
+    if type git &> /dev/null; then
+        printf "zeesh: installing"
+        git clone git://vcs.lavacano.net/zeesh.git ~/.local/share/zeesh &> ~/zeesh-install.log
+    else
+        printf "zeesh: cannot install without git\n"
+        return
+    fi
 fi
-
-[[ _zshrc_updates_pending -eq 1 ]] && printf "zeesh: stub updates pending\n"
 
 # kick things off
 fpath=(
