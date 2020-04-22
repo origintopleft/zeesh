@@ -17,5 +17,5 @@ if type git &> /dev/null && (( _zeesh_fresh_install != 1 )); then
             fi
     fi
     
-    [[ _zshrc_updates_pending -eq 1 ]] && printf "zeesh: stub updates pending\n"
+    [[ _zshrc_updates_pending -eq 1 ]] && ticker_message "zeesh: stub updates pending"
 fi
