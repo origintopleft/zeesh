@@ -2,10 +2,9 @@ source ~/.local/share/zeesh/base/zeesh.zsh
 
 ticker_message "zeesh: bootstrap"
 
-cols=$(stty -a | grep -Po '(?<=columns )\d+')
+cols=$(stty -a | grep -Po '(?<=columns )\d+' | tr -d "\n")
 
 if [[ $cols -lt 80 ]]; then
-    echo "debug: $cols"
     if [[ $(uname -o) == "Android" ]]; then
         hostemoji="📞"
     else
