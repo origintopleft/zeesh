@@ -22,4 +22,5 @@ function zeesh_update () {
     fi
 }
 
-zeesh_update
+ticker_message "zeesh: checking network"
+curl -s http://lavacano.net --connect-timeout 1 > /dev/null && zeesh_update
