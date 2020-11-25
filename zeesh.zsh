@@ -24,7 +24,7 @@ source ~/.local/share/zeesh/base/updates.zsh
 
 # TODO: handle whether or not to load given modules]
 for module in ~/.local/share/zeesh/modules/*.zsh; do
-	ticker_message "zeesh: loading module ${module}"
+	ticker_message "zeesh: loading module $(basename ${module}}"
 	source ${module}
 done
 
