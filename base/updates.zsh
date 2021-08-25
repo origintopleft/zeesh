@@ -22,5 +22,9 @@ function zeesh_update () {
     fi
 }
 
-ticker_message "zeesh: checking network"
-curl -s http://lavacano.net --connect-timeout 1 > /dev/null && zeesh_update
+if [[ $_zeeshdev_ignore_updates != 1 ]]; then
+    ticker_message "zeesh: checking network"
+    curl -s http://lavacano.net --connect-timeout 1 --max-time 3 > /dev/null && zeesh_update
+else
+    ticker_message "zeesh: skipping updates (fuse blown)"
+fi

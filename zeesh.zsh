@@ -1,3 +1,4 @@
+source ~/.local/share/zeesh/base/breakerbox.zsh
 source ~/.local/share/zeesh/base/zeesh.zsh
 
 ticker_message "zeesh: bootstrap"
