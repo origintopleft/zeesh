@@ -3,8 +3,6 @@ source ~/.local/share/zeesh/base/zeesh.zsh
 
 ticker_message "zeesh: bootstrap"
 
-cols=$(stty -a | grep -Po '(?<=columns )\d+' | tr -d "\n")
-
 if [[ $cols -lt 80 ]]; then
     if [[ $(uname -o) == "Android" ]]; then
         hostemoji="📞"

@@ -3,3 +3,4 @@
 # control software for whatever unimaginable reason.
 
 _zeeshdev_ignore_updates=0
+_zeeshdev_ticker_newlines=0
