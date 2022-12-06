@@ -10,7 +10,7 @@ _zeesh_fresh_install=0
 if [[ ! -d ~/.local/share/zeesh ]]; then
     if type git &> /dev/null; then
         printf "zeesh: installing"
-        git clone git://vcs.lavacano.net/zeesh.git ~/.local/share/zeesh &> ~/zeesh-install.log
+        git clone https://vcs.otl-hga.net/nicole/zeesh.git ~/.local/share/zeesh &> ~/zeesh-install.log
         _zeesh_fresh_install=1
     else
         printf "zeesh: cannot install without git\n"
