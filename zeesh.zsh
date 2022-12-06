@@ -12,6 +12,7 @@ if [[ $cols -lt 80 ]]; then
     PROMPT="👤%{$fg_bold[white]%}@${hostemoji} %~ %# %{$reset_color%}"
 else
     PROMPT="%{$fg_bold[cyan]%}%n%{$fg_bold[white]%}@%{$fg_bold[magenta]%}%m %{$fg_bold[white]%}%~ %# %{$reset_color%}"
+    RPROMPT="%(?..%{$fg[red]%}%? )$RPROMPT"
 fi 
 TMOUT=60
 TRAPALRM () {
