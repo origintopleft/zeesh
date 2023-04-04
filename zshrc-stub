@@ -1,5 +1,8 @@
 # vim: ft=zsh :
 
+# Hint: If you're looking to add things to zshrc, make a new file called .zshrc.local and
+#       put your changes there to avoid it getting clobbered by zeesh updates.
+
 autoload -U colors && colors 
 
 PROMPT="%{$fg[cyan]%}%n%{$fg[white]%}@%{$fg[magenta]%}%m %{$fg[white]%}%~ %# "
@@ -24,3 +27,4 @@ fpath=(
     "${fpath[@]}"
 )
 source ~/.local/share/zeesh/zeesh.zsh
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
