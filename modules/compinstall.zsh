@@ -17,7 +17,7 @@ zstyle ':completion:*' select-prompt '%F{blue}%B%l%b \(%p\)%f'
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' use-compctl true
 zstyle ':completion:*' verbose true
-zstyle :compinstall filename '/home/nicole/.local/share/zeesh/compinstall.zsh'
+zstyle :compinstall filename '/home/nicole/.local/share/zeesh/modules/compinstall.zsh'
 
 autoload -Uz compinit
 compinit

@@ -19,12 +19,26 @@ function zeesh_update () {
         fi
         
         [[ _zshrc_updates_pending -eq 1 ]] && ticker_message "zeesh: stub updates pending"
+
+        echo "lastchk=$(date +%s)" > ~/.local/share/zeesh/update.tbl
     fi
 }
 
 if [[ $_zeeshdev_ignore_updates != 1 ]]; then
     ticker_message "zeesh: checking network"
-    curl -s http://lavacano.net --connect-timeout 1 --max-time 3 > /dev/null && zeesh_update
+    curl -s https://vcs.otl-hga.net --connect-timeout 1 --max-time 3 > /dev/null
+    network_ok=$?
+
+    if [[ $network_ok ]]; then
+        if [[ -f ~/.local/share/zeesh/update.tbl ]]; then
+            eval $(cat ~/.local/share/zeesh/update.tbl)
+        else
+            lastchk=0
+        fi
+        curtime=$(date +%s)
+        # if it's been fifteen minutes since the last update, do the update
+        [[ ${curtime} -gt $(( lastchk + 900 )) ]] && zeesh_update
+    fi
 else
     ticker_message "zeesh: skipping updates (fuse blown)"
 fi
