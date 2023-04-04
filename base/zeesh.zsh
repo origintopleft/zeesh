@@ -1,4 +1,5 @@
-cols=$(stty -a | grep -Po '(?<=columns )\d+' | tr -d "\n")
+#cols=$(stty -a | grep -Po '(?<=columns )\d+' | tr -d "\n")
+cols=$COLUMNS
 
 function ticker_message () {
     if [[ $_zeeshdev_ticker_newlines == 0 ]]; then
