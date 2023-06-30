@@ -26,5 +26,6 @@ fpath=(
     ~/.local/share/zeesh/plugins
     "${fpath[@]}"
 )
+[[ -f ~/.zshrc.preload ]] && source ~/.zshrc.preload
 source ~/.local/share/zeesh/zeesh.zsh
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
