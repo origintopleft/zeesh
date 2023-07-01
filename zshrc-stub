@@ -6,7 +6,7 @@
 autoload -U colors && colors 
 
 PROMPT="%{$fg[cyan]%}%n%{$fg[white]%}@%{$fg[magenta]%}%m %{$fg[white]%}%~ %# "
-RPROMPT="%{$fg_bold[black]%}%T%{$reset_color%}"
+RPROMPT=""
 
 _zeesh_fresh_install=0
 
