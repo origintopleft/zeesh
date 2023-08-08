@@ -17,7 +17,9 @@ function git_prompt() {
         if [[ "${branchtype}" == "refs" ]]; then
             branchname=$(echo ${fullbranchname} | cut -d"/" -f3)
         elif [[ "${branchtype}" == "remotes" ]]; then
-            branchname=$(echo ${commithash} | cut -d"/" -f2-)
+            branchname=$(echo ${fullbranchname} | cut -d"/" -f2-)
+        elif [[ "${branchtype}" == "tags" ]]; then
+            branchname=$(echo ${fullbranchname} | cut -d"/" -f2)
         elif [[ "${branchtype}" == "${fullbranchname}" ]]; then
             # git did it for us
             branchname=${fullbranchname}
@@ -27,7 +29,7 @@ function git_prompt() {
             echo "warning: unrecognized branch type ${branchtype}" >&2
         fi
 
-        print "%{$fg[yellow]%}${branchname}"
+        print "%{$fg_bold[yellow]%}${branchname} %{$fg[yellow]%}${commithash}"
     fi
 }
 
