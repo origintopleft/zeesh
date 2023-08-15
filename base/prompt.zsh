@@ -4,7 +4,7 @@ typeset -ag rprompt_functions
 function prompt_builder () {
         result=""
         for prompt_func in $prompt_functions; do
-                result="${result}$($prompt_func) "
+                result="${result}$($prompt_func)%{$reset_color%} "
         done
         # prompt will always end with "% " (or "# " if we're somehow root)
         result="${result}%#%{$reset_color%} "
@@ -14,7 +14,7 @@ function prompt_builder () {
 function rprompt_builder () {
         result=""
         for rprompt_func in $rprompt_functions; do
-                result="$($rprompt_func) ${result}"
+                result="$($rprompt_func)%{$reset_color%} ${result}"
         done
         result="${result}%{$reset_color%}"
         print "${result}"
