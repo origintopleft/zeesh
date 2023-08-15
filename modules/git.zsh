@@ -29,7 +29,7 @@ function git_prompt() {
             echo "warning: unrecognized branch type ${branchtype}" >&2
         fi
 
-        print "%{$fg_bold[yellow]%}${branchname} %{$fg[yellow]%}${commithash}"
+        print "%{$fg_bold[yellow]%}${branchname} %{$reset_color%}%{$fg[yellow]%}${commithash}"
     fi
 }
 
